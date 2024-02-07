@@ -23,6 +23,21 @@ ORDER BY 1 ASC;
 ```
 ![image](https://github.com/ngllsq/sql_projects/assets/114596475/08134e2a-867b-4762-a3da-864933a06edb)
 
+## Task 06
+```sql
+SELECT 
+	m.pizza_name,
+	pi.name AS pizzeria_name
+FROM menu m
+JOIN pizzeria pi ON m.pizzeria_id = pi.id
+JOIN person_order po ON m.id = po.menu_id 
+JOIN person p ON po.person_id = p.id
+WHERE p.name = 'Denis' OR p.name = 'Anna'
+ORDER BY 1, 2;
+```
+![image](https://github.com/ngllsq/sql_projects/assets/114596475/06e7e04a-065a-4f2d-811c-60c57fb77029)
+
+
 ## Task 09
 ```sql
 SELECT DISTINCT p.name
