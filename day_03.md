@@ -53,8 +53,24 @@ ORDER BY 1, 2;
 
 ## Task 05
 ```sql
+SELECT
+	pi.name AS pizzeria_name
+FROM pizzeria pi
+JOIN person_visits pv ON pi.id = pv.pizzeria_id 
+JOIN person p ON p.id = pv.person_id
+WHERE p.name = 'Andrey'
 
+EXCEPT
+
+SELECT DISTINCT
+	pi.name AS pizzeria_name
+FROM pizzeria pi
+JOIN menu m ON m.pizzeria_id = pi.id
+JOIN person_order po ON po.menu_id = m.id
+JOIN person p ON p.id = po.person_id
+WHERE p.name = 'Andrey'
 ```
+![image](https://github.com/ngllsq/sql_projects/assets/114596475/2912d06f-ad72-458c-8d54-df999c2a9899)
 
 ## Task 06
 ```sql
