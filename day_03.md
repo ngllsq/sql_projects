@@ -112,7 +112,3 @@ WHERE p.name = 'Andrey'
 
 ```
 
-## Task 14
-```sql
-
-```
