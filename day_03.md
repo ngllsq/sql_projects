@@ -43,13 +43,67 @@ ORDER BY 1, 2;
 
 ## Task 03
 ```sql
+WITH orders_woman AS (
+	SELECT pi.name FROM person_order po
+	JOIN menu m ON m.id = po.menu_id
+	JOIN pizzeria pi ON pi.id = m.pizzeria_id
+	JOIN person p ON p.id = po.person_id
+	WHERE p.gender = 'female'
+), orders_men as (
+	SELECT pi.name FROM person_order po
+	JOIN menu m ON m.id = po.menu_id
+	JOIN pizzeria pi ON pi.id = m.pizzeria_id
+	JOIN person p ON p.id = po.person_id
+	WHERE p.gender = 'male'
+)
 
+(
+	SELECT * FROM orders_woman
+	EXCEPT ALL
+	SELECT * FROM orders_men
+)
+UNION 
+(
+	SELECT * FROM orders_men
+	EXCEPT ALL
+	SELECT * FROM orders_woman
+)
+ORDER BY 1;
 ```
+![image](https://github.com/ngllsq/sql_projects/assets/114596475/8bc943d9-4762-4a6c-adf8-bf84bbb104b8)
+
 
 ## Task 04
 ```sql
+WITH orders_woman AS (
+	SELECT pi.name AS pizzeria_name FROM person_order po
+	JOIN menu m ON m.id = po.menu_id
+	JOIN pizzeria pi ON pi.id = m.pizzeria_id
+	JOIN person p ON p.id = po.person_id
+	WHERE p.gender = 'female'
+), orders_men as (
+	SELECT pi.name FROM person_order po
+	JOIN menu m ON m.id = po.menu_id
+	JOIN pizzeria pi ON pi.id = m.pizzeria_id
+	JOIN person p ON p.id = po.person_id
+	WHERE p.gender = 'male'
+)
 
+(
+	SELECT * FROM orders_woman
+	EXCEPT
+	SELECT * FROM orders_men
+)
+UNION
+(
+	SELECT * FROM orders_men
+	EXCEPT
+	SELECT * FROM orders_woman
+);
 ```
+![image](https://github.com/ngllsq/sql_projects/assets/114596475/dda3d8ef-a58a-4cdf-90d3-021283d3aeec)
+
+
 
 ## Task 05
 ```sql
