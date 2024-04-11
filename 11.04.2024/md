@@ -20,3 +20,8 @@ FROM Activity
 GROUP BY player_id
 ORDER BY 1 ASC
 ```
+# 196. Delete Duplicate Emails
+```sql
+delete from Person where id not in (
+    select min(id) as ID from Person group by Email)
+```
