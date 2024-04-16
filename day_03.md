@@ -200,16 +200,33 @@ VALUES(
 
 ## Task 11
 ```sql
-
+UPDATE menu
+SET price = price * 0.9
+WHERE pizza_name = 'greek pizza';
 ```
+![image](https://github.com/ngllsq/sql_projects/assets/114596475/ff97df9b-389c-4990-83b7-386259e5479a)
+
 
 ## Task 12
 ```sql
-
+INSERT INTO person_order (id, person_id, menu_id, order_date)
+SELECT (SELECT COALESCE(MAX(id), 0) FROM person_order) + id, id, (SELECT id FROM menu WHERE pizza_name = 'greek pizza'), '2022-02-25'
+FROM person;
 ```
+![image](https://github.com/ngllsq/sql_projects/assets/114596475/afa19769-87b5-4cc9-9415-03a85d30cbd7)
 
 ## Task 13
 ```sql
-
+DELETE FROM person_order
+WHERE order_date = '2022-02-25';
 ```
+![image](https://github.com/ngllsq/sql_projects/assets/114596475/504ce717-53ab-4c6a-b5b3-10967c26e0e2)
+
+```sql
+DELETE FROM menu
+WHERE pizza_name = 'greek pizza';
+```
+![image](https://github.com/ngllsq/sql_projects/assets/114596475/b024c406-8ec4-4a4c-abce-ba2dd1e9b145)
+
+
 
