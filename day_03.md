@@ -141,23 +141,62 @@ ORDER BY 1;
 
 ## Task 07
 ```sql
-
+INSERT INTO menu
+VALUES (19, 2, 'greek pizza', 800);
 ```
+![image](https://github.com/ngllsq/sql_projects/assets/114596475/c71659d5-77b0-4ff0-8f3f-b8c1e81e418f)
+
+```sql
+UPDATE pizzeria
+SET name = 'Dominos'
+WHERE id = 2;
+```
+![image](https://github.com/ngllsq/sql_projects/assets/114596475/3253ae64-a38e-49e1-837e-efde91abb9fa)
+
 
 ## Task 08
 ```sql
-
+INSERT INTO menu
+VALUES(
+	(SELECT MAX(id) + 1 FROM menu),
+	(SELECT id FROM pizzeria WHERE name = 'Dominos'),
+	'sicilian pizza',
+	900);
 ```
+![image](https://github.com/ngllsq/sql_projects/assets/114596475/641e7ba2-87e3-4f10-bd51-3250e8a6a1c9)
+
 
 ## Task 09
 ```sql
-
+INSERT INTO person_visits
+VALUES(
+	(SELECT MAX(id) + 1 FROM person_visits),
+	(SELECT id FROM person WHERE name = 'Denis'),
+	(SELECT id FROM pizzeria WHERE name = 'Dominos'),
+	'2022-02-24'),
+(
+	(SELECT MAX(id) + 2 FROM person_visits),
+	(SELECT id FROM person WHERE name = 'Irina'),
+	(SELECT id FROM pizzeria WHERE name = 'Dominos'),
+	'2022-02-24');
 ```
+![image](https://github.com/ngllsq/sql_projects/assets/114596475/efe1adfd-8423-4398-bd65-97ce5bd653d2)
 
 ## Task 10
 ```sql
-
+INSERT INTO person_order
+VALUES(
+	(SELECT MAX(id) + 1 FROM person_visits),
+	(SELECT id FROM person WHERE name = 'Denis'),
+	(SELECT id FROM menu WHERE pizza_name = 'sicilian pizza'),
+	'2022-02-24'),
+(
+	(SELECT MAX(id) + 2 FROM person_visits),
+	(SELECT id FROM person WHERE name = 'Irina'),
+	(SELECT id FROM menu WHERE pizza_name = 'sicilian pizza'),
+	'2022-02-24');
 ```
+![image](https://github.com/ngllsq/sql_projects/assets/114596475/a7bfe6f5-623b-44a8-a51c-a39325c64317)
 
 ## Task 11
 ```sql
