@@ -78,7 +78,7 @@ ADD CONSTRAINT ch_range_discount CHECK (discount >= 0 AND discount <= 100);
 
 ## Task 05
 ```sql
-COMMENT ON TABLE person_discounts IS 'Эта таблица хранит информацию о скидках для каждого человека в различных пиццериях.';
+COMMENT ON TABLE person_discounts IS 'Эта таблица хранит информацию о скидках для каждого человека в различных пиццериях';
 COMMENT ON COLUMN person_discounts.person_id IS 'Идентификатор человека';
 COMMENT ON COLUMN person_discounts.pizzeria_id IS 'Идентификатор пиццерии';
 COMMENT ON COLUMN person_discounts.discount IS 'Процент скидки для человека в пиццерии';
